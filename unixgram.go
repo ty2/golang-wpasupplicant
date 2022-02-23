@@ -306,7 +306,7 @@ func (uc *unixgramConn) SetNetwork(networkID int, variable string, value string)
 	var cmd string
 
 	// Since key_mgmt expects the value to not be wrapped in "" we do a little check here.
-	if variable == "key_mgmt" {
+	if variable == "key_mgmt" || variable == "frequency" {
 		cmd = fmt.Sprintf("SET_NETWORK %d %s %s", networkID, variable, value)
 	} else {
 		cmd = fmt.Sprintf("SET_NETWORK %d %s \"%s\"", networkID, variable, value)
